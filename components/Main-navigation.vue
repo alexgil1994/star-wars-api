@@ -2,12 +2,17 @@
   <div>
     <nav>
       <div class="w-full h-16 bg-orange-400 flex justify-between items-center shadow-md">
-        <nuxt-link class="ml-4" to="/">
+        <div class="flex">
+          <div class="ml-4">
+            <SelectMenu name="Films"/>
+          </div>
+          <div class="ml-4">
+            <SelectMenu name="People"/>
+          </div>
+        </div>
+        <nuxt-link class="mr-4" to="/">
           <Logo class="h-16"/>
         </nuxt-link>
-        <div class="mr-4">
-          <SelectMenu/>
-        </div>
       </div>
     </nav>
   </div>
