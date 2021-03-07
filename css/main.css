@@ -77,10 +77,6 @@ html {
 /* Nav links active exact */
 .menu.nuxt-link-exact-active {
   background-color: #2d3748;
-  /* color: white;
-  border-bottom-width: 3px;
-  border-image-slice: 12;
-  border-image-source: linear-gradient(to right, white, teal); */
 }
 /* Nav links active exact */
 .drawerMenu.nuxt-link-exact-active {
@@ -112,20 +108,3 @@ html {
 .layout-leave-active {
   opacity: 0;
 }
-
-/* .box-fade-enter,
-.box-fade-leave-to {
-  opacity: 0;
-  transform: translateY(-30px);
-}
-
-.box-fade-enter-active,
-.box-fade-leave-active {
-  transition: all 0.3s ease;
-}
-
-.box-fade-enter-to,
-.box-fade-leave {
-  opacity: 1;
-  transform: translateY(0);
-} */

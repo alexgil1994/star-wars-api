@@ -1,9 +1,9 @@
 <template>
   <div class="min-h-screen bg-gray-300">
-    <Navbar/>
+    <Main-Navigation/>
     <!-- Pages -->
     <Nuxt />
-    <Footer/>
+    <Footer class="mt-4"/>
     <!-- Global Notification -->
     <Notification/>
   </div>
