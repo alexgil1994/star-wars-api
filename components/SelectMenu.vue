@@ -6,11 +6,9 @@
     </div>
     <!-- List -->
     <transition name="fade">
-      <div v-if="visible" class="dropdownList block bg-orange-400 text-gray-100 mt-2 py-2 px-4 text-normal">
-        <div>
-          <nuxt-link class="block py-2" to="/">Test 1</nuxt-link>
-          <nuxt-link class="block py-2" to="/">Test 2</nuxt-link>
-          <nuxt-link class="block py-2" to="/">Test 3</nuxt-link>
+      <div v-if="visible" class="dropdownList block bg-orange-400 text-gray-100 mt-2 text-normal">
+        <div class="w-56" style="max-height: 500px; overflow:auto;">
+          <button v-for="item in list" :key="item.episode_id" class="block py-4 px-4 hover:bg-orange-300 hover:text-white w-full text-left">{{ item.title || item.name }}</button>
         </div>
       </div>
     </transition>
@@ -21,7 +19,7 @@
 <script>
   export default {
     props: {
-      films: {
+      list: {
         type: Array,
         default: null
       },
@@ -56,7 +54,7 @@
 
 <style scoped>
 .menu {
-  min-width: 60px;
+  min-width: 80px;
   position: relative;
   display: inline-block;
   vertical-align: middle;
@@ -70,7 +68,6 @@
 .dropdownList {
   position: absolute;
   top: 100%;
-  left: 0;
   z-index: 1000;
   min-width: 140px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);

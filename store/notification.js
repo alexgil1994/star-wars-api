@@ -2,7 +2,6 @@ export const state = () => ({
   enabled: false,
   text: null,
   color: null,
-  // todo Use it to trigger disability after some timeout period to close the notification
   cooldown: false
 })
 
