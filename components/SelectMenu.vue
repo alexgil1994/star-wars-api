@@ -7,8 +7,11 @@
     <!-- List -->
     <transition name="fade">
       <div v-if="visible" class="dropdownList block bg-orange-400 text-gray-100 mt-2 text-normal">
-        <div class="w-56" style="max-height: 500px; overflow:auto; scrollbar-width: none;">
-          <button v-for="item in list" :key="item.episode_id" class="block py-4 px-4 hover:bg-orange-300 hover:text-white w-full text-left">{{ item.title || item.name }}</button>
+        <div v-if="type === 'Films'" class="w-56" style="max-height: 500px; overflow:auto; scrollbar-width: none;">
+          <button @click="chooseFilm(item)" v-for="item in list" :key="item.episode_id" class="block py-4 px-4 hover:bg-orange-300 hover:text-white w-full text-left">{{ item.title }}</button>
+        </div>
+        <div v-else-if="type === 'People'" class="w-56" style="max-height: 500px; overflow:auto; scrollbar-width: none;">
+          <button @click="chooseActor(item)" v-for="item in list" :key="item.episode_id" class="block py-4 px-4 hover:bg-orange-300 hover:text-white w-full text-left">{{ item.name }}</button>
         </div>
       </div>
     </transition>
@@ -17,8 +20,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
   export default {
     props: {
+      type: {
+        type: String,
+        default: null
+      },
       list: {
         type: Array,
         default: null
@@ -28,6 +36,10 @@
         default: ''
       },
     },
+    computed: mapGetters({
+      chosenFilm: 'swapi/getChosenFilm',
+      chosenActor: 'swapi/getChosenActor'
+    }),
     data() {
       return {
         visible: false
@@ -40,8 +52,21 @@
         if (( el !== target) && !el.contains(target)) {
           this.visible=false
         }
+      },
+      chooseFilm(object) {
+        this.$store.commit('swapi/setChosenFilm', object)
+        if (this.chosenFilm != null) {
+          this.$router.push('/')
+        }
+      },
+      chooseActor(object) {
+        this.$store.commit('swapi/setChosenActor', object)
+        if (this.chosenActor != null) {
+          this.$router.push('/people')
+        }
       }
     },
+    // EventListener used to close menus onClick outside
     mounted () {
       document.addEventListener('click', this.documentClick)
     },

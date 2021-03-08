@@ -4,10 +4,10 @@
       <div class="w-full h-16 bg-orange-400 flex justify-between items-center shadow-md">
         <div class="flex">
           <div class="ml-4">
-            <SelectMenu :list="films" name="Films"/>
+            <SelectMenu type="Films" :list="films" name="Films"/>
           </div>
           <div class="ml-4">
-            <SelectMenu :list="people" name="People"/>
+            <SelectMenu type="People" :list="people" name="People"/>
           </div>
         </div>
         <nuxt-link class="mr-4" to="/">
