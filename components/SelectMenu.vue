@@ -7,7 +7,7 @@
     <!-- List -->
     <transition name="fade">
       <div v-if="visible" class="dropdownList block bg-orange-400 text-gray-100 mt-2 text-normal">
-        <div class="w-56" style="max-height: 500px; overflow:auto;">
+        <div class="w-56" style="max-height: 500px; overflow:auto; scrollbar-width: none;">
           <button v-for="item in list" :key="item.episode_id" class="block py-4 px-4 hover:bg-orange-300 hover:text-white w-full text-left">{{ item.title || item.name }}</button>
         </div>
       </div>
@@ -65,6 +65,7 @@
   min-width: 80px;
 }
 
+/* Scrollbar design */
 .dropdownList {
   position: absolute;
   top: 100%;
@@ -73,4 +74,24 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   text-overflow: ellipsis;
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: rgba(197, 153, 81, 0.8);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(194, 140, 53, 0.9);
+} 
 </style>
